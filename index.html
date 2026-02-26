@@ -444,7 +444,8 @@
         <span class="stay-connected__divider" aria-hidden="true"></span>
         <h2 class="stay-connected__title">Stay Connected</h2>
         <p class="stay-connected__desc">Subscribe to receive updates on new arrivals, special offers, and events</p>
-        <form class="stay-connected__form subscribe-form" action="#" method="post" aria-label="Newsletter signup">
+        <form class="stay-connected__form subscribe-form" action="https://formspree.io/f/mdalbjga" method="post" aria-label="Newsletter signup">
+          <input type="hidden" name="_subject" value="Newsletter signup (footer) - cngliquors.com">
           <div class="stay-connected__input-wrapper">
             <svg class="stay-connected__input-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             <label for="stay-connected-email" class="sr-only">Email address</label>
@@ -459,11 +460,32 @@
           if (form) {
             form.addEventListener('submit', function(e) {
               e.preventDefault();
-              var email = this.querySelector('input[type="email"]').value;
-              if (email) {
-                alert('Thank you for subscribing!');
-                this.reset();
+              var email = this.querySelector('input[type="email"]').value.trim();
+              if (!email || this.querySelector('input[type="email"]').value.indexOf('@') === -1) {
+                alert('Please enter a valid email address.');
+                return;
               }
+              var btn = this.querySelector('.stay-connected__btn');
+              if (btn) btn.disabled = true;
+              fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+              })
+                .then(function(r) {
+                  if (r.ok) {
+                    alert('Thank you for subscribing!');
+                    form.reset();
+                  } else {
+                    alert('Something went wrong. Please try again later.');
+                  }
+                })
+                .catch(function() {
+                  alert('Something went wrong. Please try again later.');
+                })
+                .finally(function() {
+                  if (btn) btn.disabled = false;
+                });
             });
           }
         })();
@@ -701,8 +723,9 @@
       <div id="popup-form-area">
         <h2 id="popup-heading">Stay Connected</h2>
         <p id="popup-description">Join our community and be the first to hear about exclusive deals, new arrivals, and special events at CNG Wine &amp; Spirits!</p>
-        <form id="popup-subscribe-form">
-          <input type="email" id="popup-email-input" placeholder="Enter your email address" required autocomplete="email"/>
+        <form id="popup-subscribe-form" action="https://formspree.io/f/mdalbjga" method="post" aria-label="Newsletter signup">
+          <input type="hidden" name="_subject" value="Newsletter signup - cngliquors.com">
+          <input type="email" id="popup-email-input" name="email" placeholder="Enter your email address" required autocomplete="email"/>
           <button type="submit" id="popup-submit-btn">Subscribe Now</button>
         </form>
         <p id="popup-privacy-text">We respect your privacy. Unsubscribe anytime.</p>

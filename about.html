@@ -266,8 +266,9 @@
       <div id="popup-form-area">
         <h2 id="popup-heading">Stay Connected</h2>
         <p id="popup-description">Join our community and be the first to hear about exclusive deals, new arrivals, and special events at CNG Wine &amp; Spirits!</p>
-        <form id="popup-subscribe-form">
-          <input type="email" id="popup-email-input" placeholder="Enter your email address" required autocomplete="email"/>
+        <form id="popup-subscribe-form" action="https://formspree.io/f/mdalbjga" method="post" aria-label="Newsletter signup">
+          <input type="hidden" name="_subject" value="Newsletter signup - cngliquors.com">
+          <input type="email" id="popup-email-input" name="email" placeholder="Enter your email address" required autocomplete="email"/>
           <button type="submit" id="popup-submit-btn">Subscribe Now</button>
         </form>
         <p id="popup-privacy-text">We respect your privacy. Unsubscribe anytime.</p>
