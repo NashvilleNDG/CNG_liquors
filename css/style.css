@@ -210,7 +210,17 @@ button {
   height: var(--topbar-height);
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.top-bar__inner {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
@@ -1195,13 +1205,16 @@ a.hero-card:hover {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  padding: 0 var(--container-padding, 1rem);
+  box-sizing: border-box;
 }
 
 .delivery-hero__bg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 0;
   background-image: url('../image/delivery-hero.png');
@@ -1213,17 +1226,28 @@ a.hero-card:hover {
 .delivery-hero-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 1;
   background: linear-gradient(to right, rgba(10, 8, 6, 0.90) 0%, rgba(10, 8, 6, 0.65) 50%, rgba(10, 8, 6, 0.20) 100%);
 }
 
-.delivery-hero-content {
+.delivery-hero__inner {
   position: relative;
   z-index: 2;
-  padding: 0 0 56px 80px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.delivery-hero-content {
+  position: relative;
+  padding: 0 0 56px 0;
   max-width: 580px;
 }
 
@@ -1659,10 +1683,11 @@ a.hero-card:hover {
 @media (max-width: 767px) {
   .delivery-hero {
     height: 380px;
+    padding: 0 24px;
   }
 
   .delivery-hero-content {
-    padding: 0 0 40px 24px;
+    padding: 0 0 40px 0;
   }
 
   .delivery-hero__title {
@@ -1696,6 +1721,24 @@ a.hero-card:hover {
 
   .delivery-why__grid {
     grid-template-columns: 1fr;
+  }
+
+  .delivery-why-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .delivery-why-card__icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .delivery-why-card__title {
+    text-align: center;
+  }
+
+  .delivery-why-card__text {
+    text-align: center;
   }
 }
 
@@ -2143,6 +2186,7 @@ a.hero-card:hover {
 .store-hours-contact__eyebrow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -2169,6 +2213,7 @@ a.hero-card:hover {
   font-weight: 700;
   font-family: "Playfair Display", Georgia, serif;
   margin: 16px 0 24px;
+  text-align: center;
 }
 
 .store-hours-contact__hours {
@@ -2295,6 +2340,7 @@ a.hero-card:hover {
   border-radius: 20px;
   padding: 36px 32px;
   max-width: 100%;
+  text-align: center;
 }
 
 .store-hours-contact__card-title {
@@ -2303,6 +2349,7 @@ a.hero-card:hover {
   font-weight: 700;
   font-family: "Playfair Display", Georgia, serif;
   margin: 0 0 28px;
+  text-align: center;
 }
 
 .store-hours-contact__item {
@@ -2310,6 +2357,7 @@ a.hero-card:hover {
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 24px;
+  text-align: left;
 }
 
 .store-hours-contact__item:last-of-type {
@@ -2362,6 +2410,7 @@ a.hero-card:hover {
 .store-hours-contact__card-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: #D4A017;
   color: #1a1a1a;
@@ -2373,6 +2422,7 @@ a.hero-card:hover {
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s ease;
+  margin: 0 auto;
 }
 
 .store-hours-contact__card-btn:hover {
@@ -3170,6 +3220,18 @@ a.hero-card:hover {
   text-decoration: none;
 }
 
+.footer__copyright-line2 {
+  display: block;
+  margin-top: 16px;
+  color: #C9A84C;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.footer__copyright-line2 .footer__ndg-link {
+  color: #C9A84C;
+}
+
 .footer__disclaimer {
   color: #ffffff;
   font-size: 13px;
@@ -3188,15 +3250,32 @@ a.hero-card:hover {
 @media (max-width: 599px) {
   .footer {
     padding: 40px 24px 0 24px;
+    text-align: center;
   }
 
   .footer__top {
     grid-template-columns: 1fr;
     padding-bottom: 40px;
+    text-align: center;
+  }
+
+  .footer__logo-img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__tagline {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .footer__follow {
     padding: 44px 20px;
+    text-align: center;
+  }
+
+  .footer__social {
+    justify-content: center;
   }
 
   .footer__bottom-bar {
@@ -3205,12 +3284,63 @@ a.hero-card:hover {
 
   .footer__bottom-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 40px 24px;
+    text-align: center;
+  }
+
+  .footer__copyright {
+    text-align: center;
   }
 
   .footer__disclaimer {
-    text-align: left;
+    text-align: center;
+  }
+
+  .footer__hours-row {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .footer__contact-item {
+    justify-content: center;
+  }
+}
+
+/* Footer bottom — mobile readability (768px and below) */
+@media (max-width: 768px) {
+  .footer__bottom-bar {
+    padding-top: 12px;
+  }
+
+  .footer__bottom-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    padding: 24px 24px 40px;
+  }
+
+  .footer__copyright {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    max-width: none;
+    color: #ffffff;
+  }
+
+  .footer__copyright .footer__ndg-link {
+    color: #C9A84C;
+  }
+
+  .footer__disclaimer {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: none;
+    font-weight: 500;
   }
 }
 
@@ -3225,13 +3355,16 @@ a.hero-card:hover {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  padding: 0 80px;
+  box-sizing: border-box;
 }
 
 .about-hero__bg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 0;
   background-image: url('../image/beer-glass.jpg');
@@ -3243,17 +3376,28 @@ a.hero-card:hover {
 .about-hero-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 1;
   background: linear-gradient(to right, rgba(10, 8, 6, 0.90) 0%, rgba(10, 8, 6, 0.65) 50%, rgba(10, 8, 6, 0.20) 100%);
 }
 
-.about-hero-content {
+.about-hero__inner {
   position: relative;
   z-index: 2;
-  padding: 0 0 56px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.about-hero-content {
+  position: relative;
+  padding: 0 0 56px 0;
   max-width: 580px;
 }
 
@@ -3292,6 +3436,7 @@ a.hero-card:hover {
 
 .about-welcome__text {
   flex: 1;
+  text-align: center;
 }
 
 .about-welcome__eyebrow {
@@ -3310,6 +3455,7 @@ a.hero-card:hover {
   font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 20px;
+  text-align: center;
 }
 
 .about-welcome__title-accent {
@@ -3586,19 +3732,43 @@ a.hero-card:hover {
   .about-reasons__logo-wrap {
     width: 100%;
   }
+
+  .about-reasons__eyebrow {
+    text-align: center;
+  }
+
+  .about-reasons__title {
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
   .about-hero {
     height: 380px;
+    padding: 0 24px;
   }
 
   .about-hero-content {
-    padding: 0 0 40px 24px;
+    padding: 0 0 40px 0;
   }
 
   .about-hero__title {
     font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    height: 320px;
+    padding: 0 20px;
+  }
+
+  .about-hero-content {
+    padding: 0 0 32px 0;
+  }
+
+  .about-hero__title {
+    font-size: 28px;
   }
 }
 
@@ -3626,13 +3796,16 @@ a.hero-card:hover {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .contact-hero__bg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 0;
   background-image: url('../image/cocktail.jpg');
@@ -3644,18 +3817,28 @@ a.hero-card:hover {
 .contact-hero__overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 1;
   background: linear-gradient(to right, rgba(10, 8, 6, 0.90) 0%, rgba(10, 8, 6, 0.65) 50%, rgba(10, 8, 6, 0.20) 100%);
 }
 
-.contact-hero__content {
-  padding: 0 0 56px 80px;
-  max-width: 580px;
+.contact-hero__inner {
   position: relative;
   z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.contact-hero__content {
+  padding: 0 0 56px 0;
+  max-width: 580px;
 }
 
 .contact-hero__eyebrow {
@@ -3679,7 +3862,7 @@ a.hero-card:hover {
 
 .contact-main {
   background: #F5F0E8;
-  padding: 60px 80px;
+  padding: 60px 24px;
 }
 
 .contact-main__inner {
@@ -4002,11 +4185,15 @@ a.hero-card:hover {
   }
 
   .contact-hero__content {
-    padding: 0 0 40px 24px;
+    padding: 0 0 40px 0;
   }
 
   .contact-hero__title {
     font-size: 38px;
+  }
+
+  .contact-main__heading {
+    text-align: center;
   }
 }
 
@@ -4040,13 +4227,16 @@ a.hero-card:hover {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  padding: 0 80px;
+  box-sizing: border-box;
 }
 
 .lsm-hero__bg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 0;
   background-image: url('../images/hero.png');
@@ -4058,18 +4248,29 @@ a.hero-card:hover {
 .lsm-hero__overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 1;
   background: linear-gradient(to right, rgba(10, 8, 6, 0.90) 0%, rgba(10, 8, 6, 0.65) 50%, rgba(10, 8, 6, 0.20) 100%);
 }
 
-.lsm-hero__content {
-  padding: 0 0 56px 80px;
-  max-width: 580px;
+.lsm-hero__inner {
   position: relative;
   z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.lsm-hero__content {
+  padding: 0 0 56px 0;
+  max-width: 580px;
+  position: relative;
 }
 
 .lsm-hero__eyebrow {
@@ -4772,8 +4973,12 @@ a.hero-card:hover {
 }
 
 @media (max-width: 768px) {
+  .lsm-hero {
+    padding: 0 24px;
+  }
+
   .lsm-hero__content {
-    padding: 0 0 40px 24px;
+    padding: 0 0 40px 0;
   }
 
   .lsm-hero__title {
@@ -4822,13 +5027,16 @@ a.hero-card:hover {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  padding: 0 80px;
+  box-sizing: border-box;
 }
 
 .page-hero__bg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 0;
   background-image: url('../image/wine-glass.jpg');
@@ -4840,17 +5048,28 @@ a.hero-card:hover {
 .page-hero-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   z-index: 1;
   background: linear-gradient(to right, rgba(10, 8, 6, 0.90) 0%, rgba(10, 8, 6, 0.65) 50%, rgba(10, 8, 6, 0.20) 100%);
 }
 
-.page-hero-content {
+.page-hero__inner {
   position: relative;
   z-index: 2;
-  padding: 0 0 56px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.page-hero-content {
+  position: relative;
+  padding: 0 0 56px 0;
   max-width: 580px;
 }
 
@@ -4873,13 +5092,20 @@ a.hero-card:hover {
   margin: 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
+  .page-hero-content {
+    padding: 0 0 56px 0;
+  }
+}
+
+@media (max-width: 768px) {
   .page-hero {
     height: 380px;
+    padding: 0 24px;
   }
 
   .page-hero-content {
-    padding: 0 0 40px 24px;
+    padding: 0 0 40px 0;
   }
 
   .page-hero__title {
@@ -4890,6 +5116,7 @@ a.hero-card:hover {
 @media (max-width: 479px) {
   .page-hero {
     height: 320px;
+    padding: 0 24px;
   }
 
   .page-hero__title {

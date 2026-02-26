@@ -1,0 +1,65 @@
+---
+description: Top bar and header for new pages — same structure and active nav link
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# Header and top bar for new pages
+
+Whenever you add a **new HTML page**, use the **same top bar and header** as on existing pages. The header is shared globally; only the active nav link changes per page.
+
+## Reference pages
+
+Copy the top bar + header block from: **index.html**, **contact.html**, **selection.html**, **delivery.html**, **about.html**, or **liquor-store-murfreesboro.html**.
+
+## Required structure (HTML)
+
+**1. Top bar** (above `<header>`):
+
+```html
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="top-bar__inner">
+    <div class="top-bar__left">
+      <a href="tel:+16158958777" class="top-bar__contact">
+        <span aria-hidden="true">&#9742;</span>
+        <span>(615) 895-8777</span>
+      </a>
+      <a href="https://www.google.com/maps/dir//2750+S+Rutherford+Blvd,+Murfreesboro,+TN+37130" target="_blank" rel="noopener noreferrer" class="top-bar__contact">
+        <span aria-hidden="true">&#128205;</span>
+        <span>2750 S Rutherford Blvd, Murfreesboro, TN</span>
+      </a>
+    </div>
+    <div class="top-bar__right">
+      <span class="top-bar__hours"><span aria-hidden="true">&#128339;</span> Open Today: 8 AM – 11 PM</span>
+    </div>
+  </div>
+</div>
+```
+
+- The **`top-bar__inner`** wrapper is required: it uses `max-width: var(--container-max)` and horizontal padding so the phone/address align with the logo and nav in the header below (not flush left).
+
+**2. Header** (same on every page; only `nav__link--active` changes):
+
+- `header.header` → `div.header__inner` containing:
+  - `a.header__logo` (link to index.html, logo image)
+  - `nav.nav` with five links: Home, Our Selection, Delivery, About Us, Contact
+  - `div.header__actions` with one CTA: **Order Online** (`a.btn.btn--primary` linking to delivery.html)
+  - `button#hamburger.hamburger` (aria-controls="mobile-nav", aria-expanded, aria-label)
+- `nav#mobile-nav.mobile-nav`: same nav links and same `header__actions` (Order Online)
+
+**3. Active state**
+
+- Add **`nav__link--active`** to the **one** nav link that matches the current page (e.g. on contact.html use it on the Contact link in both the desktop `.nav` and the `.mobile-nav`).
+- On index.html, use `nav__link--active` on the Home link.
+
+## CSS
+
+Header and top bar styles live in **css/style.css** (`.top-bar`, `.header`, `.header__inner`, `.nav`, `.nav__link`, `.header__actions`, `.hamburger`, `.mobile-nav`). Do **not** add page-specific header CSS; reuse the same markup so the global styles apply.
+
+## Checklist for a new page
+
+- [ ] Top bar present with **`top-bar__inner`** wrapper containing phone, address, and hours (same as reference pages).
+- [ ] Header present with logo, nav (5 links), Order Online button, hamburger.
+- [ ] Mobile nav present with same links and Order Online.
+- [ ] Exactly one nav link has `nav__link--active` — the link for the current page.

@@ -1,0 +1,60 @@
+---
+description: Hero section layout for new inner pages — align with main content
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# Hero layout for new pages
+
+Whenever you add a **new HTML page** that includes a hero section, use the same hero layout as the existing inner pages so the hero text aligns with the first content block below on all screen sizes.
+
+## Reference pages
+
+Copy the pattern from: **contact.html**, **selection.html**, **delivery.html**, **about.html**, **liquor-store-murfreesboro.html**.
+
+## Required structure (HTML)
+
+```html
+<section class="[page]-hero">
+  <div class="[page]-hero__bg" role="presentation" aria-hidden="true"></div>
+  <div class="[page]-hero__overlay"></div>
+  <div class="[page]-hero__inner">
+    <div class="[page]-hero__content">
+      <!-- eyebrow, title, description, buttons, etc. -->
+    </div>
+  </div>
+</section>
+```
+
+- Always include the **`__inner`** wrapper between the overlay and the content.
+- Use BEM-style class names: `[pagename]-hero`, `[pagename]-hero__bg`, `[pagename]-hero__overlay`, `[pagename]-hero__inner`, `[pagename]-hero__content`.
+
+## Required CSS pattern
+
+1. **Section (e.g. `.contact-hero`)**  
+   - `padding: 0 [Xpx]` — use the **same horizontal padding** as the first content section below (e.g. 24px for contact, 80px for selection/about/lsm, or `var(--container-padding)` for delivery).  
+   - `box-sizing: border-box`.
+
+2. **Background and overlay (`__bg`, `__overlay`)**  
+   - Full-bleed so the dark background has no gaps:  
+     `width: 100vw; left: 50%; transform: translateX(-50%);`  
+   - Keep `position: absolute; top: 0; height: 100%; z-index: 0` (bg) and `z-index: 1` (overlay).
+
+3. **Inner (`__inner`)**  
+   - `max-width` and centering **matching the first content block** (e.g. 1200px for contact/selection/about, 900px for delivery, 1100px for lsm).  
+   - `margin: 0 auto; width: 100%; position: relative; z-index: 2;`  
+   - `display: flex; align-items: flex-end; justify-content: flex-start;` so content sits bottom-left.
+
+4. **Content (`__content`)**  
+   - `padding: 0 0 56px 0` (no left/right padding; alignment comes from section + inner).  
+   - Optional: `max-width: 580px` for the text block.
+
+5. **Responsive**  
+   - On smaller breakpoints (e.g. 768px), reduce section padding (e.g. to 24px) and content bottom padding (e.g. to 40px) as in the reference pages.
+
+## Checklist for a new page hero
+
+- [ ] Section has horizontal padding matching the content below.
+- [ ] `__bg` and `__overlay` use `100vw` + `left: 50%` + `translateX(-50%)`.
+- [ ] `__inner` wrapper exists with correct `max-width` and `margin: 0 auto`.
+- [ ] `__content` has only bottom padding (e.g. `0 0 56px 0`).
