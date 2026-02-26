@@ -3231,6 +3231,7 @@ a.hero-card:hover {
 
 .footer__copyright-line2 .footer__ndg-link {
   color: #C9A84C;
+  text-decoration: none;
 }
 
 .footer__disclaimer {
@@ -4248,7 +4249,7 @@ a.hero-card:hover {
   width: 100vw;
   height: 100%;
   z-index: 0;
-  background-image: url('../image/hero.webp');
+  background-image: url('../image/contact-hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
