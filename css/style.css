@@ -532,7 +532,7 @@ body.menu-open {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-image: url('../images/hero.png');
+  background-image: url('../image/CNG-hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1217,7 +1217,7 @@ a.hero-card:hover {
   width: 100vw;
   height: 100%;
   z-index: 0;
-  background-image: url('../image/delivery-hero.png');
+  background-image: url('../image/delivery-hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1466,7 +1466,8 @@ a.hero-card:hover {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .delivery-why-card__icon {
@@ -3367,7 +3368,7 @@ a.hero-card:hover {
   width: 100vw;
   height: 100%;
   z-index: 0;
-  background-image: url('../image/beer-glass.jpg');
+  background-image: url('../image/about-hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -3436,7 +3437,7 @@ a.hero-card:hover {
 
 .about-welcome__text {
   flex: 1;
-  text-align: center;
+  text-align: left;
 }
 
 .about-welcome__eyebrow {
@@ -3455,7 +3456,7 @@ a.hero-card:hover {
   font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .about-welcome__title-accent {
@@ -3712,6 +3713,14 @@ a.hero-card:hover {
     flex-direction: column;
   }
 
+  .about-welcome__text {
+    text-align: center;
+  }
+
+  .about-welcome__title {
+    text-align: center;
+  }
+
   .about-welcome__img-wrap {
     width: 100%;
   }
@@ -3808,7 +3817,7 @@ a.hero-card:hover {
   width: 100vw;
   height: 100%;
   z-index: 0;
-  background-image: url('../image/cocktail.jpg');
+  background-image: url('../image/contact-hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -4239,7 +4248,7 @@ a.hero-card:hover {
   width: 100vw;
   height: 100%;
   z-index: 0;
-  background-image: url('../images/hero.png');
+  background-image: url('../image/hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -5039,7 +5048,7 @@ a.hero-card:hover {
   width: 100vw;
   height: 100%;
   z-index: 0;
-  background-image: url('../image/wine-glass.jpg');
+  background-image: url('../image/selection-hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
