@@ -4445,7 +4445,8 @@ a.hero-card:hover {
   font-family: Georgia, "Playfair Display", serif;
   color: #1a1a1a;
   margin: 0 0 24px;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .lsm-local__p {
