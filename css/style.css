@@ -3422,6 +3422,14 @@ a.hero-card:hover {
   margin: 0;
 }
 
+.about-hero__desc {
+  color: #f4efe6;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 16px 0 0;
+  max-width: 560px;
+}
+
 .about-welcome {
   background: #ffffff;
   padding: 80px 80px;
