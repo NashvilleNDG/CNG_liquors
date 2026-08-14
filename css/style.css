@@ -5111,6 +5111,14 @@ a.hero-card:hover {
   margin: 0;
 }
 
+.page-hero__desc {
+  color: #f4efe6;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 16px 0 0;
+  max-width: 560px;
+}
+
 @media (max-width: 900px) {
   .page-hero-content {
     padding: 0 0 56px 0;
